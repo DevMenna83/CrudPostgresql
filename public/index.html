@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+    shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Evandro</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light navbar bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contato.html">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </br>
+<body>
+    <h1>Minha Página</h1>
+    <div>
+      <button type="button" class="btn btn-primary" id="filtro-nome" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      onclick="return abreModal()">Adicionar</button>
+  </div>
+  <br>
+  <!------------------ Modal de Cadastro de Clientes------------------------------------------------>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role ="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Cadastro de Clientes</h5>
+    <!--button onclick="getAllUsers()">Filtrar</button>
+    <button type="button" class="btn btn-primary"  onclick="return abreModal()">Cadastrar Cliente</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Novo Usuário</h5-->
+            <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3 needs-validation" id="form-data" novalidate method="POST">
+              <div class="d-none">
+                <label for="input-id" class="col-form-label">Id:</label>
+                <input type="text" class="form-control" id="input-id">
+              </div>
+              <div class="form-group col-12">
+                <label for="input-nome" class="col-form-label">Nome:</label>
+                <input type="text" class="form-control" id="input-nome" required>
+                <div class="invalid-feedback">Campo obrigatório!</div>
+              </div>
+              <div class="form-group col-12">
+                <label for="input-email" class="form-label">Email:</label>
+                <input type="text" class="form-control" id="input-email">
+              </div>
+              <div class="form-group col-12">
+                <label for="input-telefone" class="form-label">Telefone:</label>
+                <input type="text" class="form-control" id="input-telefone">
+              </div>
+              <div class="form-group col-12">
+                <label for="input-logradouro" class="form-label">Logradouro:</label>
+                <input type="text" class="form-control" id="input-logradouro">
+              </div>
+              <div class="form-group col-3">
+                <label for="input-numero" class="form-label">Número:</label>
+                <input type="text" class="form-control" id="input-numero" >
+              </div>
+              <div class="form-group col-9">
+                <label for="input-complemento" class="form-label">Complemento:</label>
+                <input type="text" class="form-control" id="input-complemento">
+              </div>
+              <div class="form-group col-12">
+                <label for="input-bairro" class="form-label">Bairro:</label>
+                <input type="text" class="form-control" id="input-bairro" >
+              </div>
+              <div class="form-group col-10">
+                <label for="input-cidade" class="form-label">Cidade:</label>
+                <input type="text" class="form-control" id="input-cidade" >
+              </div>
+              <div class="form-group col-2">
+                <label for="input-uf" class="form-label">UF:</label>
+                <input type="text" class="form-control" id="input-uf" >
+              </div>
+              <div class="modal-footer col-12">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="salvarUsuario()" data-bs-dismiss="modal">Salvar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Modal para delete -->
+<div class="modal fade" id="modaldelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Exclusão</h5>
+            <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="modaldelete_body">
+            Confirma a exclusão do registro?
+        </div>
+        <div class="d-none">
+            <input type="text" class="form-control" id="input-id-delete">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="return excluirUsuario()">Confirmar a Exclusão</button>
+        </div>
+    </div>
+</div>
+</div>
+
+    <table id="datatable" class="condensed table">
+    </table>
+
+    <script>
+       
+       // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+
+              form.classList.add('was-validated')
+              salvarUsuario()
+            }, false)
+          })
+      })()
+
+      async function tableHeader() {
+        const tableHeaderHTML = 
+          '<thead class="thead-light">'
+          +'<tr>'
+          +'  <th scope="col">#</th>'
+          +'  <th scope="col">Nome</th>'
+          +'  <th scope="col">Email</th>'
+          +'  <th scope="col">Telefone</th>'
+          +'  <th scope="col">Ações</th>'
+          +'</tr>'
+          +'</thead>'
+        return tableHeaderHTML 
+      }
+
+      async function getAllUsers() {
+        const filterByName = document.getElementById('filtro-nome').value
+        const response = (filterByName == '' || filterByName == 'undefined') ? await fetch('/api/user') : await fetch('/api/user?'+ new URLSearchParams({nome: filterByName}))
+        if (response.status != 200) {
+            alert('erro')
+            return
+        }
+        const tbl = document.getElementById('datatable')
+
+        const resultAsJS = await response.json()
+        const arrRows = []
+        let index = 1
+        for (const row of resultAsJS) {
+            arrRows.push(                  
+                  '<tr>'
+                +  '<th scope="row">'+ index +'</th>'
+                +  '<td>'+row.nome+'</td>'
+                +  '<td>'+row.email+'</td>'
+                +  '<td>'+row.telefone+'</td>'
+                +  '<td>'
+                +  '<button class="btn btn-link dxbs-button" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="abreModal(\''+ row.id +'\')"><i class="bi-pencil-square"></i></button>'
+                +  '<button class="btn btn-link dxbs-button" data-bs-toggle="modal" data-bs-target="#modaldelete" onclick="abremodalDelete(\''+ row.id +'\')"><i class="bi-trash"></i></button>'
+                +  '</td>'
+                +'</tr>'
+            )
+            index++
+        }
+		const tableHeaderHTML = await tableHeader()
+        tbl.innerHTML = 
+          tableHeaderHTML
+          +'<tbody>'
+          + arrRows.join('')
+          + '</tbody>'
+		    $(document).ready( function () {
+        $('#datatable').DataTable();
+        } );
+      }
+
+      async function abreModal(id) {
+        if (id == '' || id == undefined || id == 0) { 
+          document.getElementById('input-id').value=''
+          document.getElementById('input-nome').value=''
+          document.getElementById('input-email').value=''
+          document.getElementById('input-telefone').value=''
+          document.getElementById('input-logradouro').value=''
+          document.getElementById('input-numero').value=''
+          document.getElementById('input-complemento').value=''
+          document.getElementById('input-bairro').value=''
+          document.getElementById('input-cidade').value=''
+          document.getElementById('input-uf').value=''
+        } else {
+          const response = await fetch('/api/user/'+id)
+          if (response.status != 200) {
+            alert('erro')
+            return
+          }
+          const resultAsJS = await response.json()
+          document.getElementById('input-id').value=resultAsJS.id
+          document.getElementById('input-nome').value=resultAsJS.nome
+          document.getElementById('input-email').value=resultAsJS.email
+          document.getElementById('input-telefone').value=resultAsJS.telefone
+          document.getElementById('input-logradouro').value=resultAsJS.logradouro
+          document.getElementById('input-numero').value=resultAsJS.numero
+          document.getElementById('input-complemento').value=resultAsJS.complemento
+          document.getElementById('input-bairro').value=resultAsJS.bairro
+          document.getElementById('input-cidade').value=resultAsJS.cidade
+          document.getElementById('input-uf').value=resultAsJS.uf
+        }
+
+        $('#exampleModal').modal({keyboard: true})
+      }
+
+      async function abremodalDelete(id) {
+        const response = await fetch('/api/user/'+id)
+          if (response.status != 200) {
+            alert('erro')
+            return
+          }
+        const resultAsJS = await response.json()
+        document.getElementById("modaldelete_body").innerHTML='Confirma a exclusão de "'+ resultAsJS.nome +'"'
+        document.getElementById("input-id-delete").value=id
+        $('#modaldelete').modal({keyboard: true})
+      }
+      
+      async function salvarUsuario() {
+        const idValue = document.getElementById('input-id').value
+        const requestOpt = {
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            method: (idValue == '' || idValue == undefined || idValue == 0) ? 'POST' : 'PUT',
+            body: JSON.stringify({
+              id: idValue,
+              nome: document.getElementById('input-nome').value,
+              email: document.getElementById('input-email').value,
+              telefone: document.getElementById('input-telefone').value,
+              logradouro: document.getElementById('input-logradouro').value,
+              numero: document.getElementById('input-numero').value,
+              complemento: document.getElementById('input-complemento').value,
+              bairro: document.getElementById('input-bairro').value,
+              cidade: document.getElementById('input-cidade').value,
+              uf: document.getElementById('input-uf').value
+            })
+        }
+        const response = await fetch('/api/user', requestOpt)
+        if (response.status != 200) {
+          alert('erro')
+          return
+        }
+        getAllUsers()
+      }
+
+      async function excluirUsuario() {
+        const idValue = document.getElementById('input-id-delete').value
+        const requestOpt = {
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            method: 'DELETE'
+        }
+        const response = await fetch('/api/user/'+idValue, requestOpt)
+        if (response.status != 200) {
+          alert('erro')
+          return
+        }
+        $('#modaldelete').modal('toggle');
+        getAllUsers()
+      }
+
+      getAllUsers()
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+    integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>        
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</body>
+</html>
