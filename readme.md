@@ -1,5 +1,3 @@
 Projeto usando Node Express PostgreSql Sequelize Bootstrap
-para iniciar o projeto entre na pasta raiz d:\backup projeto
-e inicie no prompt node index.js
-o projeto abrira em localhost:4000
-apenas metodo POST e PUSH testado em tela simples
+para iniciar o projeto  necessário instalar as dependências entre na pasta raiz do projeto
+e iniciar no prompt node index.js projeto abrira em localhost:4000.
